@@ -1,8 +1,11 @@
 
+import SimpleLightbox from "simplelightbox";
+
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 
 function createGallery(images) {
-    return images.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `<li class='gallery-item'>
+    const markap = images.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `<li class='gallery-item'>
         <a  href="${largeImageURL}">
         <img  src="${webformatURL}" alt="${tags}"/></a>
         <ul class="gallery-text-list">
@@ -19,7 +22,19 @@ function createGallery(images) {
         <p>${downloads}</p></li></ul>
             </li > `
     ).join("");
-
+    const gallery = document.querySelector(".gallery")
+    gallery.innerHTML = markap;
+let lightbox = null
+    if (!lightbox) {
+         lightbox = new SimpleLightbox('.gallery a', {
+          captionsData: 'alt',
+          captionDelay: 250,
+        });
+    }
+    else {
+        lightbox.refresh()
+    }
+   
 }
 
 

@@ -9,7 +9,15 @@ function getImagesByQuery(query) {
             orientation: 'horizontal',
             safesearch: 'true'
         }
+     })
+         .then(response => {
+        return response.data.hits
     })
+         .catch(error => {
+          
+      }
+      )
+    
 }
 
 export default getImagesByQuery
