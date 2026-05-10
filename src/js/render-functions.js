@@ -24,6 +24,10 @@ function createGallery(images) {
             </li > `
     ).join("");
     const gallery = document.querySelector(".gallery")
+    if (!gallery) {
+    return
+}
+
     gallery.innerHTML = markap;
 
     if (!lightbox) {
