@@ -26,7 +26,7 @@ function handleSubmit(event) {
       color: 'red',
       position: 'topRight',
       message:
-        'Sorry, there are no images matching your search query. Please try again!',
+        'Please enter your request!',
     });
     return;
   }

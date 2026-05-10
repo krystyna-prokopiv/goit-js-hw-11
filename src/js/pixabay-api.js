@@ -13,11 +13,7 @@ function getImagesByQuery(query) {
          .then(response => {
         return response.data.hits
     })
-         .catch(error => {
-          
-      }
-      )
-    
+       
 }
 
 export default getImagesByQuery

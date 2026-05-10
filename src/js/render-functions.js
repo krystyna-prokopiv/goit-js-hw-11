@@ -3,6 +3,7 @@ import SimpleLightbox from "simplelightbox";
 
 import "simplelightbox/dist/simple-lightbox.min.css";
 
+let lightbox = null
 
 function createGallery(images) {
     const markap = images.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `<li class='gallery-item'>
@@ -24,7 +25,7 @@ function createGallery(images) {
     ).join("");
     const gallery = document.querySelector(".gallery")
     gallery.innerHTML = markap;
-let lightbox = null
+
     if (!lightbox) {
          lightbox = new SimpleLightbox('.gallery a', {
           captionsData: 'alt',
@@ -40,6 +41,9 @@ let lightbox = null
 
 function clearGallery() {
     const gallery = document.querySelector(".gallery")
+    if (!gallery) {
+        return
+    }
     gallery.innerHTML = ""
 }
 
@@ -47,11 +51,17 @@ const loader = document.querySelector(".loader")
    
 
 function showLoader() {
+    if (!loader) {
+        return
+    }
      loader.classList.add("visible")
         
 }
 
 function hideLoader() {
+    if (!loader) {
+        return
+    }
     loader.classList.remove("visible")
     
 }
